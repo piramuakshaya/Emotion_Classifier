@@ -4,7 +4,7 @@ from PIL import Image
 from tensorflow.keras.models import load_model
 
 # Load model
-model = load_model("emotion_model_bc.h5")
+model = load_model("CNN_Model/emotion_model_bc.h5")
 
 # Class labels
 class_names = ["Disgust", "Happy"]
@@ -29,12 +29,10 @@ if uploaded_file:
     if pred >= 0.60:
         predicted_class = 1  # Happy
         label = class_names[predicted_class]
-    elif pred <= 0.55:
+    else:
         predicted_class = 0  # Disgust
         label = class_names[predicted_class]
-    else:
-        label = "Uncertain"
-        st.write("⚠️ The model is unsure between Happy and Disgust.")
+    
 
     st.write(f"**Prediction:** {label}")
-    st.write(f"**Confidence:** {confidence * 100:.2f}%")
+   

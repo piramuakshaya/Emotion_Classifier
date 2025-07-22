@@ -4,6 +4,8 @@
 This project aims to classify facial expressions as **Happy** or **Disgust** using a **custom-built Convolutional Neural Network (CNN)** trained on grayscale images from a manually curated subset of the **FER-2013** dataset.
 
 ---
+## Streamlit App
+This project includes a Streamlit web app to perform real-time emotion classification on uploaded face images.
 
 ##  Dataset Preparation & Preprocessing
 
@@ -72,6 +74,24 @@ Same as of Convolution block 1 with 128 filters that captures high-level feature
 ##  Results
 
 Accuracy **81%**
+- Go through the Results folder for Confusion Matrix,Classification Report and Graph.
 
 ---
+
+## Challenges and its solution:
+**1. Working with just 300 images (150 per class) made it difficult for the model to generalize and learn diverse facial patterns.**
+
+- Chose a lightweight CNN architecture with fewer parameters to avoid overfitting.
+
+- Applied Dropout and Batch Normalization to improve generalization.
+
+- Used shuffling and balanced classes to improve training efficiency and fairness.
+
+**2. With so few samples, overfitting could happen very easily, leading to poor performance on unseen test data.**
+
+- Added a Dropout layer (0.3) in the dense part of the network.
+
+- Included Batch Normalization after each convolution layer to stabilize and regularize training.
+
+- Monitored training metrics closely to avoid unnecessary epochs.
 
